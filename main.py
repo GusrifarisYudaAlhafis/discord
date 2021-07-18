@@ -1,6 +1,5 @@
 import discord
 import os
-from discord.utils import get
 
 token = os.getenv("DISCORD_BOT_TOKEN")
 
@@ -16,9 +15,10 @@ async def on_message(message):
         return
 
     if message.content.startswith('$Halo'):
-        role = get(ctx.message.author.guild.roles, id=866027113522266192)
-        await ctx.message.author.add_roles(role)
         await message.channel.send('Hello!')
+        role = discord.utils.get(message.author.guild.roles, id=866027113522266192)
+        await message.author.add_roles(role)
+        
 
 
 client.run(token)
