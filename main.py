@@ -15,7 +15,7 @@ async def on_message(message):
         return
 
     if message.content.startswith('$Halo'):
-        role = discord.utils.get(message.guild.roles, name="Programmer")
+        role = discord.utils.get(message.author.guild.roles, name='Programmer')
         await message.author.add_roles(role)
         await message.channel.send('Hello!')
 
