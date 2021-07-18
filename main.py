@@ -1,4 +1,7 @@
 import discord
+import os
+
+token = os.getenv("DISCORD_BOT_TOKEN")
 
 @client.event
 async def on_message(message):
