@@ -3,14 +3,19 @@ import os
 
 token = os.getenv("DISCORD_BOT_TOKEN")
 
+client = discord.Client()
+
+@client.event
+async def on_ready():
+    print('We have logged in as {0.user}'.format(client))
+
 @client.event
 async def on_message(message):
-    user = message.author
-    if message.content.lower() == "Halo":
-        role = discord.utils.get(user.guild.roles, name="Programmer")
-        if role is not None:
-            await user.add_roles(role)
+    if message.author == client.user:
+        return
 
+    if message.content.startswith('$hello'):
+        await message.channel.send('Hello!')
 
 
 client.run(token)
