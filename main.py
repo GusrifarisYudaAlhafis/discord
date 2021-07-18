@@ -10,13 +10,7 @@ async def on_ready() :
     await client.change_presence(status = discord.Status.idle, activity = discord.Game("Listening to .help"))
     print("I am online")
 
-@client.event
-async def on_message(message) :
-    guild = message.author.guild
-    if message.content.lower() == "Halo" :
-        role = discord.utils.get(guild.roles, name="Programmer")
-        if role is not None :
-            await message.author.add_roles(role)
+
 
 @client.command()
 async def ping(ctx) :
