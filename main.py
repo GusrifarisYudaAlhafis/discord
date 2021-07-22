@@ -12,7 +12,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if "Liash" in message.content:
+    if "Kakak" in message.content:
         await message.author.add_roles(get(message.guild.roles, id=866027113522266192))
 
 client.run(token)
